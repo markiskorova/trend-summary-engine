@@ -1,0 +1,16 @@
+trend-summary-engine/
+├── backend/               # Go API server
+│   ├── cmd/
+│   ├── graph/
+│   ├── internal/
+│   ├── go.mod
+│   ├── Dockerfile
+├── frontend/              # React + Vite
+│   ├── src/
+│   ├── public/
+│   ├── vite.config.ts
+│   ├── tsconfig.json
+│   ├── package.json
+│   ├── Dockerfile
+├── docker-compose.yml     # Optional for orchestration
+├── README.md

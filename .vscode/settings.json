@@ -1,0 +1,29 @@
+{
+  // General Editor Settings
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+
+  // Go Backend Configuration
+  "go.useLanguageServer": true,
+  "go.toolsManagement.autoUpdate": true,
+  "go.lintTool": "golangci-lint",
+  "go.lintOnSave": "package",
+  "go.testOnSave": true,
+  "go.vetOnSave": "package",
+  "go.buildOnSave": "package",
+  "go.formatTool": "gofmt",
+
+  // JavaScript/TypeScript Frontend
+  "eslint.validate": ["javascript", "typescript", "typescriptreact"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // Terminal (PowerShell)
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+
+  // GraphQL
+  "graphql.experimental.features": {
+    "customDirectives": true
+  }
+}
