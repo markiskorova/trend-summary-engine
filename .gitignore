@@ -1,39 +1,33 @@
 # === Node.js / Frontend ===
 node_modules/
 dist/
+.vite/
+*.log
 .env.local
 .env.development
 .env.production
-.vite/
-*.log
 
 # === Go / Backend ===
 bin/
 *.exe
 *.test
 *.out
-*.log
 coverage/
 vendor/
 
-# === OS-specific ===
-.DS_Store
-Thumbs.db
-
-# === IDEs ===
+# === IDEs and Editor Configs ===
 .vscode/
 .idea/
 
-# === Python (if needed in future) ===
-__pycache__/
-*.py[cod]
-*.egg-info/
-.venv/
-env/
-venv/
+# === OS-specific files ===
+.DS_Store
+Thumbs.db
 
-# === Misc ===
+# === Miscellaneous ===
 *.swp
 *.swo
 *.bak
 *.tmp
+
+# === Environment files ===
+.env
