@@ -14,7 +14,7 @@ func main() {
 	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{}}))
 
 	http.Handle("/", playground.Handler("GraphQL playground", "/query"))
-	http.Handle("/query", srv)
+	http.Handle("/query", authmw.Middleware(srv)) // <--- wrap GraphQL server in auth middleware
 
 	log.Println("🚀 Server ready at http://localhost:8080/")
 	log.Fatal(http.ListenAndServe(":8080", nil))

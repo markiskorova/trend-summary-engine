@@ -1,9 +1,9 @@
 {
   // General Editor Settings
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit"
-  },
+  //"editor.formatOnSave": true,
+  //"editor.codeActionsOnSave": {
+  //  "source.fixAll": "explicit"
+  //},
 
   // Go Backend Configuration
   "go.useLanguageServer": true,
