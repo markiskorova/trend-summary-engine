@@ -1,24 +1,23 @@
-module github.com/markiskorova/trend-summary-engine/backend
+module trend-summary-engine
 
-go 1.24.3
+go 1.22
 
 require (
-	github.com/99designs/gqlgen v0.17.73
-	github.com/go-shiori/go-readability v0.0.0-20250217085726-9f5bf5ca7612
-	github.com/vektah/gqlparser/v2 v2.5.26
+	github.com/golang-jwt/jwt/v5 v5.2.0
+	github.com/graphql-go/graphql v0.8.1
+	github.com/graphql-go/handler v0.2.4
+	github.com/joho/godotenv v1.5.1
+	golang.org/x/crypto v0.22.0
+	gorm.io/driver/postgres v1.5.1
+	gorm.io/gorm v1.25.5
 )
 
 require (
-	github.com/agnivade/levenshtein v1.2.1 // indirect
-	github.com/andybalholm/cascadia v1.3.3 // indirect
-	github.com/araddon/dateparse v0.0.0-20210429162001-6b43995a97de // indirect
-	github.com/go-shiori/dom v0.0.0-20230515143342-73569d674e1c // indirect
-	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
-	github.com/gogs/chardet v0.0.0-20211120154057-b7413eaefb8f // indirect
-	github.com/google/uuid v1.6.0 // indirect
-	github.com/gorilla/websocket v1.5.0 // indirect
-	github.com/hashicorp/golang-lru/v2 v2.0.7 // indirect
-	github.com/sosodev/duration v1.3.1 // indirect
-	golang.org/x/net v0.39.0 // indirect
-	golang.org/x/text v0.24.0 // indirect
+	github.com/jackc/pgpassfile v1.0.0 // indirect
+	github.com/jackc/pgservicefile v0.0.0-20221227161230-091c0ba34f0a // indirect
+	github.com/jackc/pgx/v5 v5.3.1 // indirect
+	github.com/jinzhu/inflection v1.0.0 // indirect
+	github.com/jinzhu/now v1.1.5 // indirect
+	github.com/stretchr/testify v1.8.4 // indirect
+	golang.org/x/text v0.14.0 // indirect
 )

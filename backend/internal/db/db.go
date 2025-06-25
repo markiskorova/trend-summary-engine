@@ -1,23 +1,25 @@
 package db
 
-import "trend-summary-engine/graph/model"
+import (
+    "log"
+    "os"
 
-func Connect() (*DB, error) {
-	// Implement your DB connection logic here
-	return &DB{}, nil
-}
+    "gorm.io/driver/postgres"
+    "gorm.io/gorm"
+)
 
-type DB struct{}
+var DB *gorm.DB
 
-func (db *DB) GetNextPendingArticle() (*model.Article, error) {
-	// Query the database for one article where summary is null
-	return &model.Article{
-		ID:  1,
-		URL: "https://example.com/article",
-	}, nil
-}
+func Init() {
+    dsn := os.Getenv("DATABASE_URL")
+    var err error
+    DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+    if err != nil {
+        log.Fatal("failed to connect to DB:", err)
+    }
 
-func (db *DB) SaveSummary(articleID int, summary string) error {
-	// Update the article record with the summary text
-	return nil
+    err = DB.AutoMigrate(&User{}, &Article{})
+    if err != nil {
+        log.Fatal("failed to auto-migrate models:", err)
+    }
 }

@@ -1,33 +1,26 @@
-# === Node.js / Frontend ===
-node_modules/
-dist/
-.vite/
-*.log
-.env.local
-.env.development
-.env.production
-
-# === Go / Backend ===
-bin/
+# Go
 *.exe
-*.test
 *.out
-coverage/
+*.test
+/build/
+/bin/
 vendor/
 
-# === IDEs and Editor Configs ===
-.vscode/
-.idea/
+# Node
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.env
 
-# === OS-specific files ===
+# Vite
+.vite/
+
+# Editor / System
 .DS_Store
-Thumbs.db
-
-# === Miscellaneous ===
+.idea/
+.vscode/
 *.swp
 *.swo
-*.bak
-*.tmp
 
-# === Environment files ===
-.env
+# Docker
+/backend/.env
+docker-compose.override.yml

@@ -1,0 +1,25 @@
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    env_file:
+      - ./backend/.env
+
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: trendpulse_user
+      POSTGRES_PASSWORD: trendpulse_pass
+      POSTGRES_DB: trendpulse
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

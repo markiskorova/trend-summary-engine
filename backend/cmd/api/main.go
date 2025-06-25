@@ -3,19 +3,28 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
-	"github.com/99designs/gqlgen/graphql/handler"
-	"github.com/99designs/gqlgen/graphql/playground"
-	"github.com/markiskorova/trend-summary-engine/backend/graph"
-	"github.com/markiskorova/trend-summary-engine/backend/graph/generated"
+	"trend-summary-engine/internal/auth"
+	"trend-summary-engine/internal/graph"
+
+	"github.com/graphql-go/handler"
 )
 
 func main() {
-	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{}}))
+	h := handler.New(&handler.Config{
+		Schema:   &graph.Schema,
+		Pretty:   true,
+		GraphiQL: true,
+	})
 
-	http.Handle("/", playground.Handler("GraphQL playground", "/query"))
-	http.Handle("/query", authmw.Middleware(srv)) // <--- wrap GraphQL server in auth middleware
+	// Inject JWT-auth middleware
+	http.Handle("/graphql", auth.Middleware(h))
 
-	log.Println("🚀 Server ready at http://localhost:8080/")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	log.Printf("Server running at http://localhost:%s/graphql", port)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
